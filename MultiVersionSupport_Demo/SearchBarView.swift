@@ -6,11 +6,7 @@ struct SearchBarView: View {
     var body: some View {
         let field = fieldContent
 
-        if #available(iOS 26, *) {
-            field.glassEffect(.regular, in: .rect(cornerRadius: 20))
-        } else {
-            field.background(.ultraThinMaterial, in: .rect(cornerRadius: 20))
-        }
+        field.cardSurface()
     }
 
     private var fieldContent: some View {
@@ -28,11 +24,7 @@ struct FilterChipView: View {
     var body: some View {
         let chip = chipContent
 
-        if #available(iOS 26, *) {
-            chip.glassEffect(.regular, in: .capsule)
-        } else {
-            chip.background(.ultraThinMaterial, in: .capsule)
-        }
+        chip.cardSurface()
     }
 
     private var chipContent: some View {

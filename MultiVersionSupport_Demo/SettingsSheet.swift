@@ -4,11 +4,7 @@ struct SettingsSheet: View {
     var body: some View {
         let sheetBody = sheetContent
 
-        if #available(iOS 26, *) {
-            sheetBody.glassEffect(.regular, in: .rect(cornerRadius: 0))
-        } else {
-            sheetBody.background(.ultraThinMaterial, in: .rect(cornerRadius: 0))
-        }
+        sheetBody.cardSurface()
     }
 
     private var sheetContent: some View {
@@ -26,11 +22,7 @@ private struct AppearanceRow: View {
     var body: some View {
         let row = rowContent
 
-        if #available(iOS 26, *) {
-            row.glassEffect(.regular, in: .rect(cornerRadius: 14))
-        } else {
-            row.background(.ultraThinMaterial, in: .rect(cornerRadius: 14))
-        }
+        row.cardSurface()
     }
 
     private var rowContent: some View {
@@ -43,11 +35,7 @@ private struct AboutRow: View {
     var body: some View {
         let row = rowContent
 
-        if #available(iOS 26, *) {
-            row.glassEffect(.regular, in: .rect(cornerRadius: 14))
-        } else {
-            row.background(.ultraThinMaterial, in: .rect(cornerRadius: 14))
-        }
+        row.cardSurface()
     }
 
     private var rowContent: some View {

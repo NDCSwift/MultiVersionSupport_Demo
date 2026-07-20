@@ -22,11 +22,7 @@ private struct DetailHeaderView: View {
     var body: some View {
         let header = headerContent
 
-        if #available(iOS 26, *) {
-            header.glassEffect(.regular, in: .rect(cornerRadius: 24))
-        } else {
-            header.background(.ultraThinMaterial, in: .rect(cornerRadius: 24))
-        }
+        header.cardSurface()
     }
 
     private var headerContent: some View {
@@ -39,15 +35,14 @@ private struct DetailHeaderView: View {
     }
 }
 
+
 private struct DetailActionBarView: View {
     var body: some View {
         let bar = barContent
 
-        if #available(iOS 26, *) {
-            bar.glassEffect(.regular, in: .rect(cornerRadius: 18))
-        } else {
-            bar.background(.ultraThinMaterial, in: .rect(cornerRadius: 18))
-        }
+       
+        
+        bar.cardSurface()
     }
 
     private var barContent: some View {
@@ -63,11 +58,7 @@ private struct DetailShareButtonView: View {
     var body: some View {
         let button = buttonContent
 
-        if #available(iOS 26, *) {
-            button.glassEffect(.regular, in: .rect(cornerRadius: 16))
-        } else {
-            button.background(.ultraThinMaterial, in: .rect(cornerRadius: 16))
-        }
+        button.cardSurface()
     }
 
     private var buttonContent: some View {

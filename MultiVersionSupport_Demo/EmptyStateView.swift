@@ -4,11 +4,7 @@ struct EmptyStateView: View {
     var body: some View {
         let content = emptyContent
 
-        if #available(iOS 26, *) {
-            content.glassEffect(.regular, in: .rect(cornerRadius: 24))
-        } else {
-            content.background(.ultraThinMaterial, in: .rect(cornerRadius: 24))
-        }
+        content.cardSurface()
     }
 
     private var emptyContent: some View {

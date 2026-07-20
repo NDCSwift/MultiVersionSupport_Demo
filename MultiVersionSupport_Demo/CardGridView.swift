@@ -24,11 +24,13 @@ struct CardGridView: View {
         }
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                if #available(iOS 26, *) {
+           
                     NavigationLink("Browse") {
-                        SpatialCardBrowser()
+                        if #available(iOS 26, macOS 26, *) {
+                            SpatialCardBrowser()
+                        }
                     }
-                }
+                
             }
         }
     }
@@ -40,11 +42,7 @@ private struct FeaturedBannerView: View {
     var body: some View {
         let banner = bannerContent
 
-        if #available(iOS 26, *) {
-            banner.glassEffect(.regular, in: .rect(cornerRadius: 28))
-        } else {
-            banner.background(.ultraThinMaterial, in: .rect(cornerRadius: 28))
-        }
+        banner.cardSurface()
     }
 
     private var bannerContent: some View {
@@ -65,11 +63,7 @@ private struct CardCellView: View {
     var body: some View {
         let card = cardContent
 
-        if #available(iOS 26, *) {
-            card.glassEffect(.regular, in: .rect(cornerRadius: 20))
-        } else {
-            card.background(.ultraThinMaterial, in: .rect(cornerRadius: 20))
-        }
+        card.cardSurface()
     }
 
     private var cardContent: some View {

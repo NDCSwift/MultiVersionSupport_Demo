@@ -6,11 +6,7 @@ struct CardRowView: View {
     var body: some View {
         let row = rowContent
 
-        if #available(iOS 26, *) {
-            row.glassEffect(.regular, in: .rect(cornerRadius: 14))
-        } else {
-            row.background(.ultraThinMaterial, in: .rect(cornerRadius: 14))
-        }
+        row.cardSurface()
     }
 
     private var rowContent: some View {
@@ -29,11 +25,7 @@ struct PinnedCardRowView: View {
     var body: some View {
         let row = rowContent
 
-        if #available(iOS 26, *) {
-            row.glassEffect(.regular, in: .rect(cornerRadius: 14))
-        } else {
-            row.background(.ultraThinMaterial, in: .rect(cornerRadius: 14))
-        }
+        row.cardSurface()
     }
 
     private var rowContent: some View {

@@ -23,3 +23,5 @@ struct SpatialCardBrowser: View {
         .navigationTitle("Browse")
     }
 }
+
+
