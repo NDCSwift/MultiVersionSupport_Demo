@@ -24,13 +24,14 @@ struct CardGridView: View {
         }
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-           
+                // Gate the whole entry point, not just its destination.
+                // SpatialCardBrowser has no fallback UI, so a button that's
+                // always visible would navigate to a blank screen pre-iOS 26.
+                if #available(iOS 26, macOS 26, *) {
                     NavigationLink("Browse") {
-                        if #available(iOS 26, macOS 26, *) {
-                            SpatialCardBrowser()
-                        }
+                        SpatialCardBrowser()
                     }
-                
+                }
             }
         }
     }
