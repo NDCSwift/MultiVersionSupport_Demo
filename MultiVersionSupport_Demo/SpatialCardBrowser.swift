@@ -1,7 +1,11 @@
 import SwiftUI
 
-// The feature with no iOS 18 fallback — gated at the type level, not with an
-// inline branch. See Part 3, "When a Feature Can't Degrade."
+// The feature with no pre-iOS 26 fallback — gated at the type level with
+// @available instead of an inline branch inside the view. Callers (see
+// CardGridView.swift) still have to gate the entry point itself, since a
+// type-level @available only stops this view from being *instantiated* on
+// unsupported OSes — it doesn't stop a button from *offering* it. See
+// Part 3, "When a Feature Can't Degrade."
 @available(iOS 26, *)
 struct SpatialCardBrowser: View {
     private let cards = Card.sample
