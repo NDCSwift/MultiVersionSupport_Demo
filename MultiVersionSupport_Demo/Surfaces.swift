@@ -17,6 +17,11 @@ import SwiftUI
 
 struct CardSurface: ViewModifier {
     func body(content: Content) -> some View {
+        // Centralized here so every card/row/detail view can just call
+        // .cardSurface() instead of repeating this #available check — see
+        // CardGridView.swift and CardDetailView.swift for the call sites,
+        // and Starter's CardDetailView.swift for what it looks like
+        // duplicated across every view instead of consolidated once.
         if #available(iOS 26, *) {
             content.glassEffect(.regular, in: .rect(cornerRadius: 20))
         } else {
@@ -30,7 +35,5 @@ extension View {
         modifier(CardSurface())
     }
 }
-
-
 
 
