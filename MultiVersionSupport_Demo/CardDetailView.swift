@@ -1,5 +1,7 @@
 import SwiftUI
 
+// Every subview below calls .cardSurface() rather than its own #available
+// check — the iOS 26 vs. fallback decision lives once in Surfaces.swift.
 struct CardDetailView: View {
     let card: Card
 
